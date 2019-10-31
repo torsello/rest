@@ -42,7 +42,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES ('3df70891-fbf3-11e9-aa8d-d017c2102254','ARG',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254');
+INSERT INTO `transaction` VALUES ('3df70891-fbf3-11e9-aa8d-d017c2102254','ARG',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102255','ARG',-500.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102256','USD',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254');
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,6 +82,64 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'arbolito'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `balance` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `balance`(in xid char(36))
+BEGIN
+	
+    declare cant int default 0;
+
+	select count(*) into cant from user where id=xid;
+
+	if cant > 0 then
+		SELECT currency, sum(amount) from transaction where user_id=xid group by currency;
+	else
+		select "Error 100: No existe un usuario con ese id";
+	end if;
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `balancePerCurrency` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `balancePerCurrency`(in xid char(36), in xcurrency varchar(50))
+BEGIN
+	
+    declare cant int default 0;
+
+	select count(*) into cant from user where id=xid;
+
+	if cant > 0 then
+		SELECT currency, sum(amount) from transaction where user_id=xid and currency=xcurrency;
+	else
+		select "Error 100: No existe un usuario con ese id";
+	end if;
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `createUser` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -149,4 +207,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-31 13:08:01
+-- Dump completed on 2019-10-31 13:51:03

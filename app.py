@@ -172,7 +172,7 @@ def deposit():
             print("MySQL connection is closed")
 
 @app.route("/balance/<id>", methods=['GET'])
-def balance():
+def balance(id):
     try:
         if (request.method == 'GET'):
             some_json = request.get_json()
@@ -181,10 +181,15 @@ def balance():
                                             user='root',
                                             password='lala123')
             cursor = connection.cursor()
-            #args=[some_json["code"], some_json["desc"], some_json["state"], some_json["state_code"], some_json["address"]]
-            #cursor.callproc("altaUsuario", args)
-            #connection.commit()
-            return jsonify({"Recibido:": some_json}), 200
+            args=[id,]
+            cursor.callproc("balance", args)
+            
+            for result in cursor.stored_results():
+                tup=result.fetchall()
+            
+            str1=" ".join(map(str,tup))
+
+            return jsonify({"Balance:": str1}), 200
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
@@ -205,10 +210,15 @@ def balancePerCurrency(currency,id):
                                             user='root',
                                             password='lala123')
             cursor = connection.cursor()
-            #args=[some_json["code"], some_json["desc"], some_json["state"], some_json["state_code"], some_json["address"]]
-            #cursor.callproc("altaUsuario", args)
-            #connection.commit()
-            return jsonify({"Recibido:": some_json}), 200
+            args=[id,currency,]
+            cursor.callproc("balancePerCurrency", args)
+            
+            for result in cursor.stored_results():
+                tup=result.fetchone()
+            
+            str1=" ".join(map(str,tup))
+
+            return jsonify({"Balance:": str1}), 200
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
