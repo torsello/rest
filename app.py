@@ -71,18 +71,32 @@ def deleteUser(id):
 def buy():
     try:
         if (request.method == 'POST'):
-            url = 'http://data.fixer.io/api/latest?access_key=ee59a049eaa5fee1eca9efdf3de71c9c&format=1'
-            response = requests.get(url)
             some_json = request.get_json()
             connection = mysql.connector.connect(host='127.0.0.1',
                                             database='arbolito',
                                             user='root',
                                             password='lala123')
             cursor = connection.cursor()
-            #args=[some_json["code"], some_json["desc"], some_json["state"], some_json["state_code"], some_json["address"]]
-            #cursor.callproc("altaUsuario", args)
-            #connection.commit()
-            return jsonify({"Recibido:": some_json}), 200
+            #moneda. Para el caso de valor de compra, se establece un precio del 94% sobre el
+            #valor de venta. Por ejemplo, si el valor del dolar es de $60, la casa de cambio le vende al usuario a $60 y se los
+            #compra a $56,40.
+            url = 'http://data.fixer.io/api/latest?access_key=ee59a049eaa5fee1eca9efdf3de71c9c&symbols='+some_json["currency"]+','+some_json["currencyTo"]
+            response = requests.get(url)
+            data = json.loads(response.text)
+            currency= (data['rates'][some_json['currency']])
+            currencyTo= (data['rates'][some_json["currencyTo"]])
+            # $1 de moneda a comprar
+            valorPorCadaPeso=(1*currency)/currencyTo
+            args=[some_json["id"], some_json["currency"], some_json["currencyTo"], some_json["amountTo"], str(round(valorPorCadaPeso, 2)),]
+            cursor.callproc("buy", args)
+            connection.commit()
+
+            for result in cursor.stored_results():
+                tup=result.fetchone()
+            
+            str1=" ".join(map(str,tup))
+
+            return jsonify({"Recibido:": str1}), 200
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
@@ -97,18 +111,33 @@ def buy():
 def sell():
     try:
         if (request.method == 'POST'):
-            url = 'http://data.fixer.io/api/latest?access_key=ee59a049eaa5fee1eca9efdf3de71c9c&format=1'
-            response = requests.get(url)
             some_json = request.get_json()
             connection = mysql.connector.connect(host='127.0.0.1',
                                             database='arbolito',
                                             user='root',
                                             password='lala123')
             cursor = connection.cursor()
-            #args=[some_json["code"], some_json["desc"], some_json["state"], some_json["state_code"], some_json["address"]]
-            #cursor.callproc("altaUsuario", args)
-            #connection.commit()
-            return jsonify({"Recibido:": some_json}), 200
+            #moneda. Para el caso de valor de compra, se establece un precio del 94% sobre el
+            #valor de venta. Por ejemplo, si el valor del dolar es de $60, la casa de cambio le vende al usuario a $60 y se los
+            #compra a $56,40.
+            url = 'http://data.fixer.io/api/latest?access_key=ee59a049eaa5fee1eca9efdf3de71c9c&symbols='+some_json["currency"]+','+some_json["currencyToBuy"]
+            response = requests.get(url)
+            data = json.loads(response.text)
+            currency= (data['rates'][some_json['currency']])
+            currencyTo= (data['rates'][some_json["currencyToBuy"]])
+            # $1 de moneda a comprar
+            valorPorCadaPeso=((1*currencyTo)/currency)*0.94
+            
+            args=[some_json["id"], some_json["currency"], some_json["amount"], str(round(valorPorCadaPeso, 2)),]
+            cursor.callproc("sell", args)
+            connection.commit()
+
+            for result in cursor.stored_results():
+                tup=result.fetchone()
+            
+            str1=" ".join(map(str,tup))
+
+            return jsonify({"Recibido:": str1}), 200
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:

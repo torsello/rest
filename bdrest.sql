@@ -42,7 +42,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES ('2a81fc88-fc05-11e9-aa8d-d017c2102254','ARG',-500.00,'2019-10-31 14:35:44','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102254','ARG',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102255','ARG',-500.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102256','USD',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102257','ARG',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('4aab0379-fc05-11e9-aa8d-d017c2102254','ARG',500.00,'2019-10-31 14:36:38','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('a1c7e1ce-fc05-11e9-aa8d-d017c2102254','ARG',500.00,'2019-10-31 14:39:04','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b01b8a09-fc05-11e9-aa8d-d017c2102254','ARG',-500.00,'2019-10-31 14:39:28','3dc67433-fbf3-11e9-aa8d-d017c2102254');
+INSERT INTO `transaction` VALUES ('1cfc25b3-fc51-11e9-aa8d-d017c2102254','ARS',-300.00,'2019-10-31 23:39:17','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('1d0be542-fc51-11e9-aa8d-d017c2102254','USD',5.00,'2019-10-31 23:39:18','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('2a81fc88-fc05-11e9-aa8d-d017c2102254','ARS',-500.00,'2019-10-31 14:35:44','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102254','ARS',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102255','ARS',-500.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102256','USD',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102257','ARS',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('48f7a30f-fc51-11e9-aa8d-d017c2102254','ARS',-298.00,'2019-10-31 23:40:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('4906d8b8-fc51-11e9-aa8d-d017c2102254','USD',5.00,'2019-10-31 23:40:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('4aab0379-fc05-11e9-aa8d-d017c2102254','ARS',500.00,'2019-10-31 14:36:38','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('538bab62-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:37:54','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('539e27a8-fc59-11e9-aa8d-d017c2102254','ARS',5599.00,'2019-11-01 00:37:55','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('88efb958-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:39:24','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('88f41942-fc59-11e9-aa8d-d017c2102254','ARS',2.00,'2019-11-01 00:39:24','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('a1c7e1ce-fc05-11e9-aa8d-d017c2102254','ARS',500.00,'2019-10-31 14:39:04','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b01b8a09-fc05-11e9-aa8d-d017c2102254','ARS',-500.00,'2019-10-31 14:39:28','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b1bd3d16-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:40:32','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b1c5acba-fc59-11e9-aa8d-d017c2102254','ARS',2.00,'2019-11-01 00:40:33','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('cee27620-fc4e-11e9-aa8d-d017c2102254','ARS',-600.00,'2019-10-31 23:22:47','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('ceeb0638-fc4e-11e9-aa8d-d017c2102254','USD',10.00,'2019-10-31 23:22:47','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('eae323c1-fc51-11e9-aa8d-d017c2102254','ARS',-119.00,'2019-10-31 23:45:03','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('eae712ac-fc51-11e9-aa8d-d017c2102254','USD',2.00,'2019-10-31 23:45:03','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('fa79ba3a-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:42:35','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('fa7ca80a-fc59-11e9-aa8d-d017c2102254','ARS',5599.00,'2019-11-01 00:42:35','3dc67433-fbf3-11e9-aa8d-d017c2102254');
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,6 +140,46 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `buy` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `buy`(in xid char(36), in xcurrency varchar(50), in xcurrencyTo varchar(50), in xamountTo decimal(10,2), in xcurrencyValue decimal(10,2))
+BEGIN
+    
+    declare cant int default 0;
+	declare total decimal default 0;
+    declare enBanco decimal default 0;
+    
+    set total := xamountTo*xcurrencyValue;
+    
+	select count(*) into cant from user where id=xid;
+	if cant > 0 then
+		select sum(amount) into enBanco from transaction where user_id=xid and currency=xcurrency;
+        if total <= enBanco then
+			insert into transaction values (uuid(), xcurrency, total*-1, now(), xid);
+			insert into transaction values (uuid(), xcurrencyTo, xamountTo, now(), xid);
+            select "success";
+		else
+			select "Error 102: No posees saldo suficiente para realizar la operacion";
+        end if;
+	else
+		select "Error 100: No existe un usuario con ese id";
+	end if;
+    
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `createUser` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -150,7 +190,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `createUser`(in xuser varchar(50), in xpass varchar(50), in xdni varchar(50), in xname varchar(50), in xsurname varchar(50), in xcurrency varchar(50), in xamount decimal )
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createUser`(in xuser varchar(50), in xpass varchar(50), in xdni varchar(50), in xname varchar(50), in xsurname varchar(50), in xcurrency varchar(50), in xamount decimal(10,2))
 BEGIN
     declare xid char(36);
     
@@ -207,7 +247,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `deposit`(in xid char(36), xcurrency varchar(50), xamount decimal)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deposit`(in xid char(36), xcurrency varchar(50), xamount decimal(10,2))
 BEGIN
 
 	declare cant int default 0;
@@ -227,6 +267,47 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sell` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sell`(in xid char(36), in xcurrency varchar(50), in xamount decimal(10,2), in xcurrencyValue decimal(10,2))
+BEGIN
+    
+    declare cant int default 0;
+	declare total decimal default 0;
+    declare enBanco decimal default 0;
+    
+    set total := xamount*xcurrencyValue;
+    
+	select count(*) into cant from user where id=xid;
+
+	if cant > 0 then
+		select sum(amount) into enBanco from transaction where user_id=xid and currency=xcurrency;
+        if xamount <= enBanco then
+			insert into transaction values (uuid(), xcurrency, xamount*-1, now(), xid);
+			insert into transaction values (uuid(), 'ARS', total, now(), xid);
+            select "success";
+		else
+			select "Error 102: No posees saldo suficiente para realizar la operacion";
+        end if;
+	else
+		select "Error 100: No existe un usuario con ese id";
+	end if;
+    
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `withdraw` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -237,7 +318,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `withdraw`(in xid char(36), xcurrency varchar(50), xamount decimal)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `withdraw`(in xid char(36), xcurrency varchar(50), xamount decimal(10,2))
 BEGIN
 
 	declare cant int default 0;
@@ -273,4 +354,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-31 14:41:19
+-- Dump completed on 2019-11-01  0:44:36
