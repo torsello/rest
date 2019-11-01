@@ -3,12 +3,39 @@ import json
 import requests
 from mysql.connector import Error, MySQLConnection
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/")
+@app.route("/login", methods=['POST'])
 def hello():
-    return jsonify({"about": "Hello world!"})
+    try:
+        if (request.method == 'POST'):
+            some_json = request.get_json()
+            connection = mysql.connector.connect(host='127.0.0.1',
+                                            database='arbolito',
+                                            user='root',
+                                            password='lala123')
+            cursor = connection.cursor()
+            args=[some_json["username"], some_json["password"],]
+            cursor.callproc("checkUser", args)
+
+            for result in cursor.stored_results():
+                tup=result.fetchone()
+            
+            str1="".join(tup)
+
+            return jsonify({"Recibido:": str1}), 200
+        else:
+            return jsonify({"Recibido": "Error method"}), 405
+    except mysql.connector.Error as error:
+        print("Failed to execute stored procedure: {}".format(error))
+    finally:
+        if (connection.is_connected()):
+            cursor.close()
+            connection.close()
+            print("MySQL connection is closed")
 
 @app.route("/user", methods=['POST'])
 def createUser():
@@ -23,7 +50,13 @@ def createUser():
             args=[some_json["username"], some_json["password"], some_json["dni"], some_json["name"], some_json["surname"], some_json["currency"], some_json["amount"]]
             cursor.callproc("createUser", args)
             connection.commit()
-            return jsonify({"Recibido:": some_json}), 200
+
+            for result in cursor.stored_results():
+                tup=result.fetchone()
+            
+            str1="".join(tup)
+
+            return jsonify({"Recibido:": str1}), 200
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:

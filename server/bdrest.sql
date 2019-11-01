@@ -42,7 +42,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES ('1cfc25b3-fc51-11e9-aa8d-d017c2102254','ARS',-300.00,'2019-10-31 23:39:17','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('1d0be542-fc51-11e9-aa8d-d017c2102254','USD',5.00,'2019-10-31 23:39:18','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('2a81fc88-fc05-11e9-aa8d-d017c2102254','ARS',-500.00,'2019-10-31 14:35:44','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102254','ARS',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102255','ARS',-500.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102256','USD',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102257','ARS',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('48f7a30f-fc51-11e9-aa8d-d017c2102254','ARS',-298.00,'2019-10-31 23:40:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('4906d8b8-fc51-11e9-aa8d-d017c2102254','USD',5.00,'2019-10-31 23:40:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('4aab0379-fc05-11e9-aa8d-d017c2102254','ARS',500.00,'2019-10-31 14:36:38','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('538bab62-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:37:54','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('539e27a8-fc59-11e9-aa8d-d017c2102254','ARS',5599.00,'2019-11-01 00:37:55','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('88efb958-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:39:24','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('88f41942-fc59-11e9-aa8d-d017c2102254','ARS',2.00,'2019-11-01 00:39:24','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('a1c7e1ce-fc05-11e9-aa8d-d017c2102254','ARS',500.00,'2019-10-31 14:39:04','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b01b8a09-fc05-11e9-aa8d-d017c2102254','ARS',-500.00,'2019-10-31 14:39:28','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b1bd3d16-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:40:32','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b1c5acba-fc59-11e9-aa8d-d017c2102254','ARS',2.00,'2019-11-01 00:40:33','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('cee27620-fc4e-11e9-aa8d-d017c2102254','ARS',-600.00,'2019-10-31 23:22:47','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('ceeb0638-fc4e-11e9-aa8d-d017c2102254','USD',10.00,'2019-10-31 23:22:47','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('eae323c1-fc51-11e9-aa8d-d017c2102254','ARS',-119.00,'2019-10-31 23:45:03','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('eae712ac-fc51-11e9-aa8d-d017c2102254','USD',2.00,'2019-10-31 23:45:03','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('fa79ba3a-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:42:35','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('fa7ca80a-fc59-11e9-aa8d-d017c2102254','ARS',5599.00,'2019-11-01 00:42:35','3dc67433-fbf3-11e9-aa8d-d017c2102254');
+INSERT INTO `transaction` VALUES ('087c20d9-fc7b-11e9-aa8d-d017c2102254','ARS',100.00,'2019-11-01 04:39:11','08753dd9-fc7b-11e9-aa8d-d017c2102254'),('1cfc25b3-fc51-11e9-aa8d-d017c2102254','ARS',-300.00,'2019-10-31 23:39:17','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('1d0be542-fc51-11e9-aa8d-d017c2102254','USD',5.00,'2019-10-31 23:39:18','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('2a81fc88-fc05-11e9-aa8d-d017c2102254','ARS',-500.00,'2019-10-31 14:35:44','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102254','ARS',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102255','ARS',-500.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102256','USD',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('3df70891-fbf3-11e9-aa8d-d017c2102257','ARS',1000.00,'2019-10-31 12:27:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('48f7a30f-fc51-11e9-aa8d-d017c2102254','ARS',-298.00,'2019-10-31 23:40:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('4906d8b8-fc51-11e9-aa8d-d017c2102254','USD',5.00,'2019-10-31 23:40:31','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('4aab0379-fc05-11e9-aa8d-d017c2102254','ARS',500.00,'2019-10-31 14:36:38','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('538bab62-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:37:54','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('539e27a8-fc59-11e9-aa8d-d017c2102254','ARS',5599.00,'2019-11-01 00:37:55','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('88efb958-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:39:24','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('88f41942-fc59-11e9-aa8d-d017c2102254','ARS',2.00,'2019-11-01 00:39:24','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('a1c7e1ce-fc05-11e9-aa8d-d017c2102254','ARS',500.00,'2019-10-31 14:39:04','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b01b8a09-fc05-11e9-aa8d-d017c2102254','ARS',-500.00,'2019-10-31 14:39:28','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b1bd3d16-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:40:32','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('b1c5acba-fc59-11e9-aa8d-d017c2102254','ARS',2.00,'2019-11-01 00:40:33','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('cee27620-fc4e-11e9-aa8d-d017c2102254','ARS',-600.00,'2019-10-31 23:22:47','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('ceeb0638-fc4e-11e9-aa8d-d017c2102254','USD',10.00,'2019-10-31 23:22:47','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('deb68953-fc79-11e9-aa8d-d017c2102254','ARS',100.00,'2019-11-01 04:30:52','de5bcd3f-fc79-11e9-aa8d-d017c2102254'),('eae323c1-fc51-11e9-aa8d-d017c2102254','ARS',-119.00,'2019-10-31 23:45:03','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('eae712ac-fc51-11e9-aa8d-d017c2102254','USD',2.00,'2019-10-31 23:45:03','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('fa79ba3a-fc59-11e9-aa8d-d017c2102254','USD',-100.00,'2019-11-01 00:42:35','3dc67433-fbf3-11e9-aa8d-d017c2102254'),('fa7ca80a-fc59-11e9-aa8d-d017c2102254','ARS',5599.00,'2019-11-01 00:42:35','3dc67433-fbf3-11e9-aa8d-d017c2102254');
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +71,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('3dc67433-fbf3-11e9-aa8d-d017c2102254','matias','412a1ed6d21e55191ee5131f266f5178','39276649','Matias','Torsello');
+INSERT INTO `user` VALUES ('08753dd9-fc7b-11e9-aa8d-d017c2102254','test11','5a105e8b9d40e1329780d62ea2265d8a','1','test1','test1'),('3dc67433-fbf3-11e9-aa8d-d017c2102254','matias','412a1ed6d21e55191ee5131f266f5178','39276649','Matias','Torsello'),('de5bcd3f-fc79-11e9-aa8d-d017c2102254','test','098f6bcd4621d373cade4e832627b4f6','1','test','test');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,6 +180,36 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `checkUser` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `checkUser`(in xuser varchar(36), in xpass varchar(36))
+BEGIN
+    
+    declare cant int default 0;
+    
+    select count(*) into cant from user where username=xuser and password=md5(xpass);
+    
+    if cant > 0 then 
+		select "success";
+	else
+		select "Error: Usuario y/o contrasena invalido.";
+	end if;
+    
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `createUser` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -193,12 +223,18 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `createUser`(in xuser varchar(50), in xpass varchar(50), in xdni varchar(50), in xname varchar(50), in xsurname varchar(50), in xcurrency varchar(50), in xamount decimal(10,2))
 BEGIN
     declare xid char(36);
+    declare cant int default 0;
     
-    insert into user values (uuid(), xuser, MD5(xpass), xdni, xname, xsurname);
+    select count(*) into cant from user where username=xuser;
     
-    select id into xid from user where user.username = xuser;
-    
-    insert into transaction values (uuid(), xcurrency, xamount, now(), xid);
+    if cant > 0 then
+		select "Error 104: Ya existe ese nombre de usuario.";
+	else
+		insert into user values (uuid(), xuser, MD5(xpass), xdni, xname, xsurname);
+		select id into xid from user where user.username = xuser;
+		insert into transaction values (uuid(), xcurrency, xamount, now(), xid);
+        select "success";
+	end if;
     
 END ;;
 DELIMITER ;
@@ -354,4 +390,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-01  0:44:36
+-- Dump completed on 2019-11-01 14:09:57
