@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="static/css/styles.css" rel="stylesheet" id="bootstrap-css">
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/3.2.1/jquery.min.js"></script>
+    <title>TP4 REST</title>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+      
+          <!-- Login Form -->
+			
+            <input type="text" id="username" class="fadeIn second" name="username" placeholder="username">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In" onclick="sendJSON()">
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="signUp.html">Sign up</a>
+          </div>
+
+          <p class="result" style="color:green"></p> 
+
+      
+        </div>
+      </div>
+
+      <script>
+        function sendJSON(){ 
+        
+              let result = document.querySelector('.result'); 
+              let username = document.querySelector('#username'); 
+              let password = document.querySelector('#password'); 
+               
+        
+        // Creating a XHR object 
+        let xhr = new XMLHttpRequest(); 
+        let url = "http://127.0.0.1:5000/login"; 
+      
+        // open a connection 
+        xhr.open("POST", url, true); 
+  
+        // Set the request header i.e. which type of content you are sending 
+        xhr.setRequestHeader("Content-Type", "application/json"); 
+  
+        // Create a state change callback 
+        xhr.onreadystatechange = function () { 
+          if (xhr.status === 200) { 
+  
+            var n = this.responseText.search("success");
+            if(n>=0){
+              window.location.href = "menu.html";
+            }else{
+              result.innerHTML = "Error"; 
+            }
+  
+          } 
+        }; 
+  
+        // Converting JSON data to string 
+        var data = JSON.stringify({ "username": username.value, "password": password.value  }); 
+        // Sending data with the request 
+        xhr.send(data); 
+      } 
+  
+  
+  
+        </script>
+</body>
+</html>

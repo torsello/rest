@@ -119,7 +119,7 @@ def buy():
             currency= (data['rates'][some_json['currency']])
             currencyTo= (data['rates'][some_json["currencyTo"]])
             # $1 de moneda a comprar
-            valorPorCadaPeso=(1*currency)/currencyTo
+            valorPorCadaPeso=(currency)/currencyTo
             args=[some_json["id"], some_json["currency"], some_json["currencyTo"], some_json["amountTo"], str(round(valorPorCadaPeso, 2)),]
             cursor.callproc("buy", args)
             connection.commit()
@@ -159,8 +159,8 @@ def sell():
             currency= (data['rates'][some_json['currency']])
             currencyTo= (data['rates'][some_json["currencyToBuy"]])
             # $1 de moneda a comprar
-            valorPorCadaPeso=((1*currencyTo)/currency)*0.94
-            
+            valorPorCadaPeso=((currencyTo)/currency)*0.94
+                                                                                
             args=[some_json["id"], some_json["currency"], some_json["amount"], str(round(valorPorCadaPeso, 2)),]
             cursor.callproc("sell", args)
             connection.commit()
