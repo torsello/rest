@@ -265,3 +265,9 @@ html {
     width:60%;
   }
   
+
+  /* MODAL */
+
+.modal-content{
+  width: 50%;
+}

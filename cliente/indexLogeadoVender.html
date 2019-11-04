@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="static/css/styles.css" rel="stylesheet" id="bootstrap-css">
+    <title>TP4 REST</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a id="btnLogin" class="navbar-brand" href="#" data-toggle="modal" data-target="#popUpWindow" style="display: none;">Login</a>
+      
+        <!-- Links -->
+        <ul class="navbar-nav">
+				<li class="nav-item">
+				  <a class="nav-link" onclick="comprarME()" >Comprar ME</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" onclick="venderME()">Vender ME</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" onclick="retirar()">Retirar</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" onclick="depositar()">Depositar</a>
+				</li>
+				<li class="nav-item">
+						<a class="nav-link" onclick="saldo()">Saldos</a>
+					</li>
+					<li class="nav-item">
+							<a class="nav-link" onclick="saldox()">Saldo x moneda</a>
+					</li>
+      
+          <!-- Dropdown -->
+          <li class="nav-item dropdown" id="btnPanel">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Panel
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#borrarUser">Borrar usuario</a>
+              <a class="dropdown-item" href="index.html">Cerrar sesion</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+	  <!-- BODY -->
+	  <div class="container">
+	  <p class="result" style="color:green"></p> 
+
+	 	<p>Monedas disponibles para vender:</p><br>
+			<select id="currency">	
+			</select><br>
+		<p>Monto a vender: </p><br>
+			<input type="text" name="amount" id="amount">
+	
+			<input type="submit" value="vender" onclick="vender()">
+		</div>
+
+	  <!-- /BODY -->
+	
+	  
+	
+		<div class="modal fade" id="borrarUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="exampleModalLabel">Confirmacion</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					  Deseas borrar tu usuario?
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+					  <button type="button" class="btn btn-primary" onclick="borrarUsuario()">Si</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
+		
+		
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>	 
+<script>
+			
+		function comprarME(){
+			var userId=window.location.search.substr(1).split('id=')[1];
+
+			window.location.href = "indexLogeadoComprar.html?id="+userId;
+
+		}
+		function venderME(){
+			var userId=window.location.search.substr(1).split('id=')[1];
+
+			window.location.href = "indexLogeadoVender.html?id="+userId;
+
+		}
+		function retirar(){
+			var userId=window.location.search.substr(1).split('id=')[1];
+
+			window.location.href = "indexLogeadoRetirar.html?id="+userId;
+
+		}
+		function depositar(){
+			var userId=window.location.search.substr(1).split('id=')[1];
+
+			window.location.href = "indexLogeadoDepositar.html?id="+userId;
+
+		}
+		function saldo(){
+			var userId=window.location.search.substr(1).split('id=')[1];
+
+			window.location.href = "indexSaldo.html?id="+userId;
+
+		}
+		function saldox(){
+			var userId=window.location.search.substr(1).split('id=')[1];
+
+			window.location.href = "indexSaldoxMoneda.html?id="+userId;
+
+		}
+
+
+	</script>
+		
+		<script>
+			function borrarUsuario(){
+			var userId=window.location.search.substr(1).split('id=')[1];
+			borrarUsuario2(userId);
+			function borrarUsuario2(userId){
+
+				// Creating a XHR object 
+				let xhr = new XMLHttpRequest(); 
+				let url = "http://127.0.0.1:5000/user/"+userId; 
+			
+				// open a connection 
+				xhr.open("DELETE", url, true); 
+		
+				// Set the request header i.e. which type of content you are sending 
+				//xhr.setRequestHeader("Content-Type", "application/json"); 
+		
+				// Create a state change callback 
+				xhr.onreadystatechange = function () { 
+				if (xhr.status === 200) { 
+					window.location.href = "index.html";
+				}
+		
+				} 
+				xhr.send(""); 
+			}
+
+		}
+		</script>
+
+
+		<script>
+				//llenar monedas del user
+				var userId=window.location.search.substr(1).split('id=')[1];
+				var itemsCurrency=[];
+				async function getType(userId) {
+					
+					let url = "http://127.0.0.1:5000/currencys/"+userId;
+			
+					let response = await fetch(url);
+					
+					response = await response.json();
+					
+					
+
+					for(var i in response)
+						itemsCurrency.push([response[i]]);
+
+
+
+					var str = "";
+					for (var item of itemsCurrency) {
+					  str += "<option>" + item + "</option>"
+					}
+					document.getElementById("currency").innerHTML = str;
+				  }
+
+				  getType(userId);
+
+
+				  function vender(){
+
+					let result = document.querySelector('.result'); 
+					let currency = document.querySelector('#currency'); 
+					var currencyTo = "ARS";
+					let amount = document.querySelector('#amount');
+					
+			  
+					// Creating a XHR object 
+					let xhr = new XMLHttpRequest(); 
+					let url = "http://127.0.0.1:5000/sell"; 
+					
+					// open a connection 
+					xhr.open("POST", url, true); 
+				
+					// Set the request header i.e. which type of content you are sending 
+					xhr.setRequestHeader("Content-Type", "application/json"); 
+				
+					// Create a state change callback 
+					xhr.onreadystatechange = function () { 
+						if (xhr.status === 200) { 
+							result.innerHTML = "Vendido con exito"; 
+						}else{
+							result.innerHTML = "Error no posees saldo suficiente"; 
+						}
+					}; 
+				
+					// Converting JSON data to string 
+					var data = JSON.stringify({ "id":userId, "currency": currency.value, "currencyToBuy": currencyTo, "amount": amount.value  }); 
+					console.log(data);
+					// Sending data with the request 
+					xhr.send(data); 
+
+				  }
+		</script>
+
+
+
+</body>
+</html>

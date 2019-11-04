@@ -25,8 +25,11 @@ def hello():
                 tup=result.fetchone()
             
             str1="".join(tup)
-
-            return jsonify({"Recibido:": str1}), 200
+            cantidad=str1.count("Error")
+            if(cantidad==0):
+                return str1, 200
+            else:
+                return str1, 404
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
@@ -78,6 +81,7 @@ def deleteUser(id):
                                             password='lala123')
             cursor = connection.cursor()
             args=[id,]
+            print args
             cursor.callproc("deleteUser", args)
             connection.commit()
 
@@ -89,7 +93,7 @@ def deleteUser(id):
             if(str1=="deleted"):
                 return jsonify({"User:": str1}), 200
             else:
-                return jsonify({str1}), 404
+                return jsonify({"Error:": str1}), 404
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
@@ -113,7 +117,7 @@ def buy():
             #moneda. Para el caso de valor de compra, se establece un precio del 94% sobre el
             #valor de venta. Por ejemplo, si el valor del dolar es de $60, la casa de cambio le vende al usuario a $60 y se los
             #compra a $56,40.
-            url = 'http://data.fixer.io/api/latest?access_key=ee59a049eaa5fee1eca9efdf3de71c9c&symbols='+some_json["currency"]+','+some_json["currencyTo"]
+            url = 'http://data.fixer.io/api/latest?access_key=6f29ee6eb68ccc8ec4043564a16e5a51&symbols='+some_json["currency"]+','+some_json["currencyTo"]
             response = requests.get(url)
             data = json.loads(response.text)
             currency= (data['rates'][some_json['currency']])
@@ -129,7 +133,15 @@ def buy():
             
             str1=" ".join(map(str,tup))
 
-            return jsonify({"Recibido:": str1}), 200
+            
+            if (str1=='success'):
+                return jsonify({"Recibido:": str1}), 200
+            elif (str1=='Error 102: No posees saldo suficiente para realizar la operacion'):
+                return jsonify({"Recibido:": str1}), 404
+            elif (str1=='Error 100: No existe un usuario con ese id'):
+                return jsonify({"Recibido:": str1}), 404
+            
+            
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
@@ -145,6 +157,7 @@ def sell():
     try:
         if (request.method == 'POST'):
             some_json = request.get_json()
+            print some_json
             connection = mysql.connector.connect(host='127.0.0.1',
                                             database='arbolito',
                                             user='root',
@@ -153,7 +166,7 @@ def sell():
             #moneda. Para el caso de valor de compra, se establece un precio del 94% sobre el
             #valor de venta. Por ejemplo, si el valor del dolar es de $60, la casa de cambio le vende al usuario a $60 y se los
             #compra a $56,40.
-            url = 'http://data.fixer.io/api/latest?access_key=ee59a049eaa5fee1eca9efdf3de71c9c&symbols='+some_json["currency"]+','+some_json["currencyToBuy"]
+            url = 'http://data.fixer.io/api/latest?access_key=6f29ee6eb68ccc8ec4043564a16e5a51&symbols='+some_json["currency"]+','+some_json["currencyToBuy"]
             response = requests.get(url)
             data = json.loads(response.text)
             currency= (data['rates'][some_json['currency']])
@@ -170,7 +183,12 @@ def sell():
             
             str1=" ".join(map(str,tup))
 
-            return jsonify({"Recibido:": str1}), 200
+            if (str1=='success'):
+                return jsonify({"Recibido:": str1}), 200
+            elif (str1=='Error 102: No posees saldo suficiente para realizar la operacion'):
+                return jsonify({"Recibido:": str1}), 404
+            elif (str1=='Error 100: No existe un usuario con ese id'):
+                return jsonify({"Recibido:": str1}), 404
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
@@ -193,14 +211,19 @@ def withdraw():
             cursor = connection.cursor()
             args=[some_json["id"], some_json["currency"], some_json["amount"],]
             cursor.callproc("withdraw", args)
+            connection.commit()
 
             for result in cursor.stored_results():
                 tup=result.fetchone()
             
-            str1="".join(tup)
+            str1=" ".join(map(str,tup))
 
-            connection.commit()
-            return jsonify({"Recibido:": str1}), 200
+            if (str1=='success'):
+                return jsonify({"Recibido:": str1}), 200
+            elif (str1=='Error 101: No tienes dinero suficiente'):
+                return jsonify({"Recibido:": str1}), 404
+            elif (str1=='Error 100: No existe un usuario con ese id'):
+                return jsonify({"Recibido:": str1}), 404
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
@@ -223,14 +246,16 @@ def deposit():
             cursor = connection.cursor()
             args=[some_json["id"], some_json["currency"], some_json["amount"],]
             cursor.callproc("deposit", args)
+            connection.commit()
 
             for result in cursor.stored_results():
                 tup=result.fetchone()
             
-            str1="".join(tup)
-
-            connection.commit()
-            return jsonify({"Recibido:": str1}), 200
+            str1=" ".join(map(str,tup))
+            if (str1=='success'):
+                return jsonify({"Recibido:": str1}), 200
+            elif (str1=='Error 100: No existe un usuario con ese id'):
+                return jsonify({"Recibido:": str1}), 404
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
@@ -289,6 +314,32 @@ def balancePerCurrency(currency,id):
             str1=" ".join(map(str,tup))
 
             return jsonify({"Balance:": str1}), 200
+        else:
+            return jsonify({"Recibido": "Error method"}), 405
+    except mysql.connector.Error as error:
+        print("Failed to execute stored procedure: {}".format(error))
+    finally:
+        if (connection.is_connected()):
+            cursor.close()
+            connection.close()
+            print("MySQL connection is closed")
+
+@app.route("/currencys/<id>", methods=['GET'])
+def getCurrencys(id):
+    try:
+        if (request.method == 'GET'):
+            connection = mysql.connector.connect(host='127.0.0.1',
+                                            database='arbolito',
+                                            user='root',
+                                            password='lala123')
+            cursor = connection.cursor()
+            args=[id]
+            cursor.callproc("getCurrencys", args)
+            
+            for result in cursor.stored_results():
+                tup=result.fetchall()        
+
+            return jsonify(tup), 200
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
