@@ -30,9 +30,7 @@
 				<li class="nav-item">
 						<a class="nav-link" onclick="saldo()">Saldos</a>
 					</li>
-					<li class="nav-item">
-							<a class="nav-link" onclick="saldox()">Saldo x moneda</a>
-					</li>
+					
       
           <!-- Dropdown -->
           <li class="nav-item dropdown" id="btnPanel">
@@ -48,7 +46,10 @@
       </nav>
 	  
 	  <div class="container">
-			<table id="my-final-table">
+			<h2>Filtrar por moneda</h2><br>
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Moneda" style="width: 200px; height: 40px;">
+			<br>
+			<table id="myTable" class="table">
 					<thead>
 					  <th>Moneda</th>
 					  <th>Saldo</th>
@@ -56,6 +57,7 @@
 					<tbody>
 					</tbody>
 				  </table>
+				
 
 	  </div>
 	
@@ -115,12 +117,7 @@
 			window.location.href = "indexSaldo.html?id="+userId;
 
 		}
-		function saldox(){
-			var userId=window.location.search.substr(1).split('id=')[1];
-
-			window.location.href = "indexSaldoxMoneda.html?id="+userId;
-
-		}
+		
 
 
 	</script>
@@ -168,12 +165,68 @@
 			let response = await fetch(url);
 			
 			response = await response.json();
+
+			
+			for(var i in response)
+				itemsCurrency.push([response[i]]);
+				
+				var table = document.getElementById("myTable");
+				
+
+			var str = "";
+
+			var items=itemsCurrency.toString().split(/[\s,]+/);
+			
+			var i=2;
+			for (var item of items) {
+				if(i%2==0){
+					var row = table.insertRow();
+					var cell1 = row.insertCell(0);
+					cell1.innerHTML = item.toString().substring(3,6);
+				}
+				
+				
+				if(i%2!=0){
+					var cell2 = row.insertCell(1);
+					cell2.innerHTML = item.toString().substring(9).slice(0, -3);
+				}
+				i++;
+
+			}
+			
+	
 			
 		  }
 
 		getType(userId)
 
-		
+			
+</script>
+
+<script>
+
+	function myFunction() {
+		// Declare variables
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+
+		// Loop through all table rows, and hide those who don't match the search query
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[0];
+			if (td) {
+			txtValue = td.textContent || td.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			} else {
+				tr[i].style.display = "none";
+			}
+			}
+		}
+	}
+
 </script>
 
 </body>

@@ -26,6 +26,7 @@ def hello():
             
             str1="".join(tup)
             cantidad=str1.count("Error")
+
             if(cantidad==0):
                 return str1, 200
             else:
@@ -140,8 +141,6 @@ def buy():
                 return jsonify({"Recibido:": str1}), 404
             elif (str1=='Error 100: No existe un usuario con ese id'):
                 return jsonify({"Recibido:": str1}), 404
-            
-            
         else:
             return jsonify({"Recibido": "Error method"}), 405
     except mysql.connector.Error as error:
@@ -283,7 +282,6 @@ def balance(id):
                 tup=result.fetchall()
             
             str1=" ".join(map(str,tup))
-
             return jsonify({"Balance:": str1}), 200
         else:
             return jsonify({"Recibido": "Error method"}), 405

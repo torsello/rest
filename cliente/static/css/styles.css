@@ -11,7 +11,7 @@ html {
   }
   
   select{
-    width: 0;
+    margin:0;
   }
 
   a {
@@ -118,7 +118,11 @@ html {
     -ms-transform: scale(0.95);
     transform: scale(0.95);
   }
-  
+
+  select{
+    margin:0;
+  }
+
   input[type=text], select {
     background-color: #f6f6f6;
     border: none;

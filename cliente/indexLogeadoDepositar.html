@@ -30,9 +30,7 @@
 				<li class="nav-item">
 						<a class="nav-link" onclick="saldo()">Saldos</a>
 					</li>
-					<li class="nav-item">
-							<a class="nav-link" onclick="saldox()">Saldo x moneda</a>
-					</li>
+					
       
           <!-- Dropdown -->
           <li class="nav-item dropdown" id="btnPanel">
@@ -119,12 +117,7 @@
 			window.location.href = "indexSaldo.html?id="+userId;
 
 		}
-		function saldox(){
-			var userId=window.location.search.substr(1).split('id=')[1];
-
-			window.location.href = "indexSaldoxMoneda.html?id="+userId;
-
-		}
+		
 
 	</script>
 		

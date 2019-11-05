@@ -30,9 +30,7 @@
 				<li class="nav-item">
 						<a class="nav-link" onclick="saldo()">Saldos</a>
 					</li>
-					<li class="nav-item">
-							<a class="nav-link" onclick="saldox()">Saldo x moneda</a>
-					</li>
+				
       
           <!-- Dropdown -->
           <li class="nav-item dropdown" id="btnPanel">
@@ -54,7 +52,7 @@
 			<select id="currency">	
 			</select><br>
 		<p>Monto a vender: </p><br>
-			<input type="text" name="amount" id="amount">
+			<input type="text" name="amount" id="amount" style="width: 85%;">
 	
 			<input type="submit" value="vender" onclick="vender()">
 		</div>
@@ -120,14 +118,7 @@
 			window.location.href = "indexSaldo.html?id="+userId;
 
 		}
-		function saldox(){
-			var userId=window.location.search.substr(1).split('id=')[1];
-
-			window.location.href = "indexSaldoxMoneda.html?id="+userId;
-
-		}
-
-
+		
 	</script>
 		
 		<script>
