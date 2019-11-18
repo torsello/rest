@@ -190,13 +190,25 @@
 					
 					for(var i in response.rates)
 						items.push([i, response.rates[i]]);
-					
+				
+					let url2 = 'http://data.fixer.io/api/latest?access_key=6f29ee6eb68ccc8ec4043564a16e5a51&symbols=ARS';
+		
+					let response2= await fetch(url2);
 
-					
+					response2 = await response2.json();
+
+					let ars = response2.rates;
+					ars= JSON.stringify(ars);
+					console.log(ars);
+					valorArs= ars.split(':')[1].split('}')[0];
+					console.log(valorArs);
+
 					var str = "";
 					for (var item of items) {
 						item=JSON.stringify(item);
-					  str += "<option>" + item.substring(2,5) + "</option>"
+						valor=item.split(',')[1].split(']')[0];
+						//coma=decimal.split('.');
+					  str += "<option>" + item.substring(2,5) +" Valor compra: "+ (valorArs/valor).toFixed(3); + "</option>"
 					}
 					document.getElementById("currencyTo").innerHTML = str;
 				}

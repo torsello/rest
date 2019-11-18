@@ -163,6 +163,16 @@
 					
 					response = await response.json();
 					
+					let url2 = 'http://data.fixer.io/api/latest?access_key=6f29ee6eb68ccc8ec4043564a16e5a51&symbols=ARS';
+		
+					let response2= await fetch(url2);
+
+					response2 = await response2.json();
+
+					let ars = response2.rates;
+					ars= JSON.stringify(ars);
+
+					valorArs= ars.split(':')[1].split('}')[0];
 					
 
 					for(var i in response)
@@ -172,7 +182,16 @@
 
 					var str = "";
 					for (var item of itemsCurrency) {
-					  str += "<option>" + item + "</option>"
+					  let url3 = 'http://data.fixer.io/api/latest?access_key=6f29ee6eb68ccc8ec4043564a16e5a51&symbols='+item;
+					  
+						let response3= await fetch(url3);
+
+						response3 = await response3.json();
+
+						let coin = response3.rates;
+						coin= JSON.stringify(coin);
+						valor= coin.split(':')[1].split('}')[0];
+					  str += "<option>" + item +" Valor venta: "+ ((valorArs/valor)*0.94).toFixed(3)  + "</option>"
 					}
 					document.getElementById("currency").innerHTML = str;
 				  }
