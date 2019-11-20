@@ -244,7 +244,7 @@
 					}; 
 				
 					// Converting JSON data to string 
-					var data = JSON.stringify({ "id":userId, "currency": currency.value, "currencyTo": currencyTo.value, "amountTo": amountTo.value  }); 
+					var data = JSON.stringify({ "id":userId, "currency": currency.value, "currencyTo": currencyTo.value.split(" ")[0], "amountTo": amountTo.value  }); 
 					// Sending data with the request 
 					xhr.send(data); 
 
